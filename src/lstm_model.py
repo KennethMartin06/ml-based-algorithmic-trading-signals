@@ -197,7 +197,8 @@ class LSTMSequenceClassifier:
         self.net.eval()
         with torch.no_grad():
             logits = self.net(self._windows(Xs, np.asarray(positions, dtype=int)))
-            return torch.softmax(logits, dim=1).numpy()
+            # float64 like every other model, so prediction frames have one consistent dtype
+            return torch.softmax(logits, dim=1).numpy().astype(np.float64)
 
     def save(self, directory: str | Path, stem: str) -> None:
         d = Path(directory)

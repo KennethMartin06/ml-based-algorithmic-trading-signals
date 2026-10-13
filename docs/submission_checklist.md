@@ -51,8 +51,8 @@ Status legend: ✅ implemented **and** verified by running it · ⚠️ implemen
 | Fixed seeds, versions recorded | ✅ | `results/metrics/run_summary.json` |
 | No secrets or absolute local paths in tracked files | ✅ | scanned before commit |
 | Independent adversarial code review | ✅ | no look-ahead or test leakage found; 5 confirmed issues fixed, with regression tests in `tests/test_review_fixes.py` |
-| Clean install from `requirements.txt` in a fresh environment | ⚠️ | see the README installation section for the verified Python versions |
-| Notebooks executed with outputs | ⚠️ | they read the saved results; re-run them in Jupyter to refresh outputs |
+| Clean install from `requirements.txt` in a fresh environment | ✅ | fresh Python 3.12.0 venv (numpy 2.5.4, pandas 3.0.6, scikit-learn 1.9.1, XGBoost 3.4.1, torch 2.14.1 CPU): 296 tests pass and `--quick` runs end-to-end with no warnings; development stack Python 3.14.3 (pandas 2.3.3, scikit-learn 1.8.0, XGBoost 3.2.0, torch 2.11.0) |
+| Notebooks executed with outputs | ✅ | all three executed top to bottom without errors (they read the saved results; no training) |
 
 ## Results summary (honest negative result)
 
