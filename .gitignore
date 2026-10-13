@@ -1,0 +1,40 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.mypy_cache/
+.ruff_cache/
+
+# --- environments & secrets -------------------------------------------------
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# --- IDE / OS -------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+.obsidian/
+
+# --- data -------------------------------------------------------------------------
+# Raw Yahoo Finance downloads are re-created by `python -m scripts.download_data`
+# (checksums are recorded in results/metrics/data_manifest.json).
+data/raw/
+data/processed/
+
+# --- experiment artefacts -------------------------------------------------------
+# Trained model binaries are large and fully reproducible from the code + config.
+results/models/
+# Smoke-test and synthetic-data runs are never part of the reported results.
+results_quick/
+results_synthetic/
+results_synthetic_quick/
+*.log
+*.tmp

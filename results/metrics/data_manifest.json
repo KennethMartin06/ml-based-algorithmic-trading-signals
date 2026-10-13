@@ -1,0 +1,71 @@
+[
+  {
+    "ticker": "SPY",
+    "source": "cache",
+    "is_synthetic": false,
+    "rows": 4024,
+    "first_date": "2010-01-04",
+    "last_date": "2025-12-31",
+    "sha256": "0ba56f9ea0fa8ac8c027f32b2bbff58b684f96a56d927de7c5f65d6b35fcf942",
+    "file": "data/raw/SPY_2010-01-01_2025-12-31.csv",
+    "validation": {
+      "input_rows": 4024,
+      "was_sorted": true,
+      "duplicate_dates_removed": 0,
+      "rows_with_missing_prices_removed": 0,
+      "rows_with_nonpositive_prices_removed": 0,
+      "missing_volume_rows": 0,
+      "zero_volume_rows": 0,
+      "high_low_inconsistencies_repaired": 0,
+      "max_calendar_gap_days": 5,
+      "gaps_over_7_days": 0,
+      "output_rows": 4024
+    }
+  },
+  {
+    "ticker": "AAPL",
+    "source": "cache",
+    "is_synthetic": false,
+    "rows": 4024,
+    "first_date": "2010-01-04",
+    "last_date": "2025-12-31",
+    "sha256": "199b5813151cb00beedfeb439127d7ebd9bc96b1d5bd93a66619970620ec21cc",
+    "file": "data/raw/AAPL_2010-01-01_2025-12-31.csv",
+    "validation": {
+      "input_rows": 4024,
+      "was_sorted": true,
+      "duplicate_dates_removed": 0,
+      "rows_with_missing_prices_removed": 0,
+      "rows_with_nonpositive_prices_removed": 0,
+      "missing_volume_rows": 0,
+      "zero_volume_rows": 0,
+      "high_low_inconsistencies_repaired": 0,
+      "max_calendar_gap_days": 5,
+      "gaps_over_7_days": 0,
+      "output_rows": 4024
+    }
+  },
+  {
+    "ticker": "MSFT",
+    "source": "cache",
+    "is_synthetic": false,
+    "rows": 4024,
+    "first_date": "2010-01-04",
+    "last_date": "2025-12-31",
+    "sha256": "d0f1bd6af9456ebb1b66d575e31e312e9b8abe2af2d634d65197e42a012c9ab3",
+    "file": "data/raw/MSFT_2010-01-01_2025-12-31.csv",
+    "validation": {
+      "input_rows": 4024,
+      "was_sorted": true,
+      "duplicate_dates_removed": 0,
+      "rows_with_missing_prices_removed": 0,
+      "rows_with_nonpositive_prices_removed": 0,
+      "missing_volume_rows": 0,
+      "zero_volume_rows": 0,
+      "high_low_inconsistencies_repaired": 0,
+      "max_calendar_gap_days": 5,
+      "gaps_over_7_days": 0,
+      "output_rows": 4024
+    }
+  }
+]

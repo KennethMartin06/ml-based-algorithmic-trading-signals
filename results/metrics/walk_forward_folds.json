@@ -1,0 +1,1354 @@
+[
+  {
+    "ticker": "SPY",
+    "test_year": 2016,
+    "train_start": "2011-01-31",
+    "train_end": "2014-12-29",
+    "val_start": "2015-01-02",
+    "val_end": "2015-12-29",
+    "test_rows": 252,
+    "train_rows": 985,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 23
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.525,
+      "random_forest": 0.475,
+      "xgboost": 0.3,
+      "lstm": 0.55,
+      "ensemble": 0.5
+    },
+    "seconds": 15.4
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2017,
+    "train_start": "2011-01-31",
+    "train_end": "2015-12-29",
+    "val_start": "2016-01-04",
+    "val_end": "2016-12-28",
+    "test_rows": 251,
+    "train_rows": 1237,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 6
+      },
+      "ensemble": {
+        "members": [
+          "xgboost",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.45,
+      "random_forest": 0.425,
+      "xgboost": 0.35,
+      "lstm": 0.3,
+      "ensemble": 0.6
+    },
+    "seconds": 19.3
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2018,
+    "train_start": "2011-01-31",
+    "train_end": "2016-12-28",
+    "val_start": "2017-01-03",
+    "val_end": "2017-12-27",
+    "test_rows": 251,
+    "train_rows": 1489,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 3
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.3,
+      "xgboost": 0.3,
+      "lstm": 0.3,
+      "ensemble": 0.3
+    },
+    "seconds": 16.5
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2019,
+    "train_start": "2011-01-31",
+    "train_end": "2017-12-27",
+    "val_start": "2018-01-02",
+    "val_end": "2018-12-27",
+    "test_rows": 252,
+    "train_rows": 1740,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 2
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.65,
+      "random_forest": 0.55,
+      "xgboost": 0.65,
+      "lstm": 0.525,
+      "ensemble": 0.6
+    },
+    "seconds": 17.9
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2020,
+    "train_start": "2011-01-31",
+    "train_end": "2018-12-27",
+    "val_start": "2019-01-02",
+    "val_end": "2019-12-27",
+    "test_rows": 253,
+    "train_rows": 1991,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 5
+      },
+      "ensemble": {
+        "members": [
+          "random_forest",
+          "xgboost"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.4,
+      "random_forest": 0.425,
+      "xgboost": 0.325,
+      "lstm": 0.35,
+      "ensemble": 0.375
+    },
+    "seconds": 19.2
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2021,
+    "train_start": "2011-01-31",
+    "train_end": "2019-12-27",
+    "val_start": "2020-01-02",
+    "val_end": "2020-12-29",
+    "test_rows": 252,
+    "train_rows": 2243,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 6
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.3,
+      "xgboost": 0.375,
+      "lstm": 0.375,
+      "ensemble": 0.3
+    },
+    "seconds": 22.2
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2022,
+    "train_start": "2011-01-31",
+    "train_end": "2020-12-29",
+    "val_start": "2021-01-04",
+    "val_end": "2021-12-29",
+    "test_rows": 251,
+    "train_rows": 2496,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 11
+      },
+      "ensemble": {
+        "members": [
+          "random_forest",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.3,
+      "xgboost": 0.3,
+      "lstm": 0.3,
+      "ensemble": 0.3
+    },
+    "seconds": 23.1
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2023,
+    "train_start": "2011-01-31",
+    "train_end": "2021-12-29",
+    "val_start": "2022-01-03",
+    "val_end": "2022-12-28",
+    "test_rows": 250,
+    "train_rows": 2748,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 6
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.65,
+      "random_forest": 0.3,
+      "xgboost": 0.6,
+      "lstm": 0.575,
+      "ensemble": 0.6
+    },
+    "seconds": 21.7
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2024,
+    "train_start": "2011-01-31",
+    "train_end": "2022-12-28",
+    "val_start": "2023-01-03",
+    "val_end": "2023-12-27",
+    "test_rows": 252,
+    "train_rows": 2999,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 4
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.3,
+      "xgboost": 0.3,
+      "lstm": 0.55,
+      "ensemble": 0.3
+    },
+    "seconds": 24.0
+  },
+  {
+    "ticker": "SPY",
+    "test_year": 2025,
+    "train_start": "2011-01-31",
+    "train_end": "2023-12-27",
+    "val_start": "2024-01-02",
+    "val_end": "2024-12-27",
+    "test_rows": 248,
+    "train_rows": 3249,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 6,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 2
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.3,
+      "xgboost": 0.3,
+      "lstm": 0.3,
+      "ensemble": 0.3
+    },
+    "seconds": 24.1
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2016,
+    "train_start": "2011-01-31",
+    "train_end": "2014-12-29",
+    "val_start": "2015-01-02",
+    "val_end": "2015-12-29",
+    "test_rows": 252,
+    "train_rows": 985,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 7
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.55,
+      "random_forest": 0.525,
+      "xgboost": 0.65,
+      "lstm": 0.5,
+      "ensemble": 0.55
+    },
+    "seconds": 14.3
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2017,
+    "train_start": "2011-01-31",
+    "train_end": "2015-12-29",
+    "val_start": "2016-01-04",
+    "val_end": "2016-12-28",
+    "test_rows": 251,
+    "train_rows": 1237,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 7
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.375,
+      "random_forest": 0.4,
+      "xgboost": 0.575,
+      "lstm": 0.4,
+      "ensemble": 0.3
+    },
+    "seconds": 16.7
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2018,
+    "train_start": "2011-01-31",
+    "train_end": "2016-12-28",
+    "val_start": "2017-01-03",
+    "val_end": "2017-12-27",
+    "test_rows": 251,
+    "train_rows": 1489,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 4
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.3,
+      "xgboost": 0.3,
+      "lstm": 0.3,
+      "ensemble": 0.3
+    },
+    "seconds": 17.6
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2019,
+    "train_start": "2011-01-31",
+    "train_end": "2017-12-27",
+    "val_start": "2018-01-02",
+    "val_end": "2018-12-27",
+    "test_rows": 252,
+    "train_rows": 1740,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 3
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "xgboost"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.525,
+      "random_forest": 0.5,
+      "xgboost": 0.65,
+      "lstm": 0.525,
+      "ensemble": 0.575
+    },
+    "seconds": 18.4
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2020,
+    "train_start": "2011-01-31",
+    "train_end": "2018-12-27",
+    "val_start": "2019-01-02",
+    "val_end": "2019-12-27",
+    "test_rows": 253,
+    "train_rows": 1991,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 9
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.375,
+      "xgboost": 0.3,
+      "lstm": 0.3,
+      "ensemble": 0.3
+    },
+    "seconds": 20.5
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2021,
+    "train_start": "2011-01-31",
+    "train_end": "2019-12-27",
+    "val_start": "2020-01-02",
+    "val_end": "2020-12-29",
+    "test_rows": 252,
+    "train_rows": 2243,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 3
+      },
+      "ensemble": {
+        "members": [
+          "random_forest",
+          "xgboost"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.425,
+      "random_forest": 0.425,
+      "xgboost": 0.425,
+      "lstm": 0.575,
+      "ensemble": 0.45
+    },
+    "seconds": 20.6
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2022,
+    "train_start": "2011-01-31",
+    "train_end": "2020-12-29",
+    "val_start": "2021-01-04",
+    "val_end": "2021-12-29",
+    "test_rows": 251,
+    "train_rows": 2496,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 10
+      },
+      "ensemble": {
+        "members": [
+          "random_forest",
+          "xgboost"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.475,
+      "random_forest": 0.55,
+      "xgboost": 0.4,
+      "lstm": 0.4,
+      "ensemble": 0.45
+    },
+    "seconds": 20.1
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2023,
+    "train_start": "2011-01-31",
+    "train_end": "2021-12-29",
+    "val_start": "2022-01-03",
+    "val_end": "2022-12-28",
+    "test_rows": 250,
+    "train_rows": 2748,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 9
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.6,
+      "random_forest": 0.55,
+      "xgboost": 0.6,
+      "lstm": 0.6,
+      "ensemble": 0.575
+    },
+    "seconds": 21.4
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2024,
+    "train_start": "2011-01-31",
+    "train_end": "2022-12-28",
+    "val_start": "2023-01-03",
+    "val_end": "2023-12-27",
+    "test_rows": 252,
+    "train_rows": 2999,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 9
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.3,
+      "xgboost": 0.3,
+      "lstm": 0.3,
+      "ensemble": 0.3
+    },
+    "seconds": 24.3
+  },
+  {
+    "ticker": "AAPL",
+    "test_year": 2025,
+    "train_start": "2011-01-31",
+    "train_end": "2023-12-27",
+    "val_start": "2024-01-02",
+    "val_end": "2024-12-27",
+    "test_rows": 248,
+    "train_rows": 3249,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 5
+      },
+      "ensemble": {
+        "members": [
+          "random_forest",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.3,
+      "random_forest": 0.45,
+      "xgboost": 0.3,
+      "lstm": 0.3,
+      "ensemble": 0.3
+    },
+    "seconds": 25.0
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2016,
+    "train_start": "2011-01-31",
+    "train_end": "2014-12-29",
+    "val_start": "2015-01-02",
+    "val_end": "2015-12-29",
+    "test_rows": 252,
+    "train_rows": 985,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 6,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 8
+      },
+      "ensemble": {
+        "members": [
+          "random_forest",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.45,
+      "random_forest": 0.45,
+      "xgboost": 0.4,
+      "lstm": 0.475,
+      "ensemble": 0.45
+    },
+    "seconds": 18.4
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2017,
+    "train_start": "2011-01-31",
+    "train_end": "2015-12-29",
+    "val_start": "2016-01-04",
+    "val_end": "2016-12-28",
+    "test_rows": 251,
+    "train_rows": 1237,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 5
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.5,
+      "random_forest": 0.3,
+      "xgboost": 0.3,
+      "lstm": 0.475,
+      "ensemble": 0.3
+    },
+    "seconds": 16.3
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2018,
+    "train_start": "2011-01-31",
+    "train_end": "2016-12-28",
+    "val_start": "2017-01-03",
+    "val_end": "2017-12-27",
+    "test_rows": 251,
+    "train_rows": 1489,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 16
+      },
+      "ensemble": {
+        "members": [
+          "random_forest",
+          "xgboost"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.4,
+      "random_forest": 0.425,
+      "xgboost": 0.35,
+      "lstm": 0.3,
+      "ensemble": 0.4
+    },
+    "seconds": 22.0
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2019,
+    "train_start": "2011-01-31",
+    "train_end": "2017-12-27",
+    "val_start": "2018-01-02",
+    "val_end": "2018-12-27",
+    "test_rows": 252,
+    "train_rows": 1740,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 3
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.525,
+      "random_forest": 0.525,
+      "xgboost": 0.6,
+      "lstm": 0.525,
+      "ensemble": 0.525
+    },
+    "seconds": 19.5
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2020,
+    "train_start": "2011-01-31",
+    "train_end": "2018-12-27",
+    "val_start": "2019-01-02",
+    "val_end": "2019-12-27",
+    "test_rows": 253,
+    "train_rows": 1991,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 11
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest",
+          "xgboost"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.4,
+      "random_forest": 0.4,
+      "xgboost": 0.475,
+      "lstm": 0.375,
+      "ensemble": 0.4
+    },
+    "seconds": 20.6
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2021,
+    "train_start": "2011-01-31",
+    "train_end": "2019-12-27",
+    "val_start": "2020-01-02",
+    "val_end": "2020-12-29",
+    "test_rows": 252,
+    "train_rows": 2243,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 4
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.45,
+      "random_forest": 0.475,
+      "xgboost": 0.375,
+      "lstm": 0.3,
+      "ensemble": 0.5
+    },
+    "seconds": 20.2
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2022,
+    "train_start": "2011-01-31",
+    "train_end": "2020-12-29",
+    "val_start": "2021-01-04",
+    "val_end": "2021-12-29",
+    "test_rows": 251,
+    "train_rows": 2496,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 4
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.55,
+      "random_forest": 0.3,
+      "xgboost": 0.325,
+      "lstm": 0.425,
+      "ensemble": 0.4
+    },
+    "seconds": 20.1
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2023,
+    "train_start": "2011-01-31",
+    "train_end": "2021-12-29",
+    "val_start": "2022-01-03",
+    "val_end": "2022-12-28",
+    "test_rows": 250,
+    "train_rows": 2748,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 7
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "lstm"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.525,
+      "random_forest": 0.55,
+      "xgboost": 0.6,
+      "lstm": 0.55,
+      "ensemble": 0.575
+    },
+    "seconds": 21.5
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2024,
+    "train_start": "2011-01-31",
+    "train_end": "2022-12-28",
+    "val_start": "2023-01-03",
+    "val_end": "2023-12-27",
+    "test_rows": 252,
+    "train_rows": 2999,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 6
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.325,
+      "random_forest": 0.425,
+      "xgboost": 0.35,
+      "lstm": 0.4,
+      "ensemble": 0.375
+    },
+    "seconds": 26.6
+  },
+  {
+    "ticker": "MSFT",
+    "test_year": 2025,
+    "train_start": "2011-01-31",
+    "train_end": "2023-12-27",
+    "val_start": "2024-01-02",
+    "val_end": "2024-12-27",
+    "test_rows": 248,
+    "train_rows": 3249,
+    "params": {
+      "logistic_regression": {
+        "C": 0.01,
+        "class_weight": null
+      },
+      "random_forest": {
+        "max_depth": 3,
+        "min_samples_leaf": 40,
+        "class_weight": null
+      },
+      "xgboost": {
+        "max_depth": 2,
+        "learning_rate": 0.05,
+        "n_estimators": 200,
+        "class_weight": null
+      },
+      "lstm": {
+        "class_weight": null,
+        "best_epoch": 5
+      },
+      "ensemble": {
+        "members": [
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    },
+    "thresholds": {
+      "logistic_regression": 0.425,
+      "random_forest": 0.45,
+      "xgboost": 0.375,
+      "lstm": 0.45,
+      "ensemble": 0.45
+    },
+    "seconds": 26.1
+  }
+]

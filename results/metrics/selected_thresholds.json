@@ -1,0 +1,23 @@
+{
+  "SPY": {
+    "logistic_regression": 0.425,
+    "random_forest": 0.3,
+    "xgboost": 0.375,
+    "lstm": 0.375,
+    "ensemble": 0.3
+  },
+  "AAPL": {
+    "logistic_regression": 0.45,
+    "random_forest": 0.4,
+    "xgboost": 0.325,
+    "lstm": 0.4,
+    "ensemble": 0.35
+  },
+  "MSFT": {
+    "logistic_regression": 0.375,
+    "random_forest": 0.3,
+    "xgboost": 0.4,
+    "lstm": 0.3,
+    "ensemble": 0.425
+  }
+}

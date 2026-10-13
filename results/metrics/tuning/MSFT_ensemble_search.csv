@@ -1,0 +1,12 @@
+members,val_log_loss
+logistic_regression+random_forest,0.8543479260686104
+logistic_regression+random_forest+xgboost,0.8559901242722961
+logistic_regression+xgboost,0.8562685593123873
+random_forest+xgboost,0.8579151605503901
+logistic_regression+random_forest+lstm,0.8582556824989099
+logistic_regression+random_forest+xgboost+lstm,0.8583868664176879
+logistic_regression+xgboost+lstm,0.8593994056985192
+logistic_regression+lstm,0.8599103735618006
+random_forest+xgboost+lstm,0.8606258412166322
+random_forest+lstm,0.8616513580990853
+xgboost+lstm,0.8634686880467726

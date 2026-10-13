@@ -1,0 +1,43 @@
+feature,group,definition,rationale
+ret_1,returns,Close-to-close return of day t,Most recent price change (short-term reversal/momentum)
+log_ret_1,returns,Log return ln(C_t/C_{t-1}),"Additive, more symmetric version of the daily return"
+ret_lag_1,returns,Return of day t-1,Lagged returns let models detect short-horizon autocorrelation
+ret_lag_2,returns,Return of day t-2,Lagged returns let models detect short-horizon autocorrelation
+ret_lag_3,returns,Return of day t-3,Lagged returns let models detect short-horizon autocorrelation
+ret_lag_5,returns,Return of day t-5,Lagged returns let models detect short-horizon autocorrelation
+cum_ret_5,returns,Cumulative return over the last 5 days,Price momentum / rate of change
+cum_ret_10,returns,Cumulative return over the last 10 days,Price momentum / rate of change
+cum_ret_20,returns,Cumulative return over the last 20 days,Price momentum / rate of change
+cum_ret_60,returns,Cumulative return over the last 60 days,Price momentum / rate of change
+overnight_ret,returns,Open_t / Close_{t-1} - 1,Overnight gap: news arriving outside trading hours
+intraday_ret,returns,Close_t / Open_t - 1 (signed open-close range),Intraday buying/selling pressure
+hl_range,returns,(High_t - Low_t) / Close_t,"Intraday range, a high-frequency volatility proxy"
+close_location,returns,"(Close-Low)/(High-Low), 0.5 when High=Low",Where the day closed inside its range (stochastic-oscillator idea)
+close_sma_5,technical,Close / SMA_5 - 1,Distance from the trend (mean-reversion or trend-following cue)
+close_sma_10,technical,Close / SMA_10 - 1,Distance from the trend (mean-reversion or trend-following cue)
+close_sma_20,technical,Close / SMA_20 - 1,Distance from the trend (mean-reversion or trend-following cue)
+close_sma_50,technical,Close / SMA_50 - 1,Distance from the trend (mean-reversion or trend-following cue)
+close_ema_5,technical,Close / EMA_5 - 1,Like the SMA ratio but weights recent prices more
+close_ema_10,technical,Close / EMA_10 - 1,Like the SMA ratio but weights recent prices more
+close_ema_20,technical,Close / EMA_20 - 1,Like the SMA ratio but weights recent prices more
+close_ema_50,technical,Close / EMA_50 - 1,Like the SMA ratio but weights recent prices more
+sma_10_50_ratio,technical,SMA_10 / SMA_50 - 1,Continuous version of the MA-crossover baseline signal
+rsi_14,technical,RSI(14) / 100 (Wilder smoothing),Overbought / oversold oscillator
+macd_norm,technical,"MACD(12,26) / Close","Trend strength, price-normalised to be comparable over time"
+macd_signal_norm,technical,MACD signal line (EMA9 of MACD) / Close,Smoothed trend strength
+macd_hist_norm,technical,(MACD - signal) / Close,Trend acceleration; sign change = classic MACD crossover
+bb_pctb,technical,%B = (Close - lower band) / (upper - lower),Position inside the Bollinger envelope (z-score-like)
+bb_width,technical,(upper - lower) / middle band,Volatility squeeze / expansion
+atr_norm,volatility,ATR(14) / Close,"Average true range including gaps, as % of price"
+vol_5,volatility,Rolling std of daily log returns over 5 days,Realised volatility at several horizons
+vol_20,volatility,Rolling std of daily log returns over 20 days,Realised volatility at several horizons
+vol_60,volatility,Rolling std of daily log returns over 60 days,Realised volatility at several horizons
+vol_ratio_5_60,volatility,Short / long realised volatility,Volatility expanding (>1) or contracting (<1)
+ret_z,volatility,ret_1 / vol_20,Volatility-normalised return: how unusual today's move was
+rel_volume_5,volume,Volume / SMA_5(Volume),Relative volume: participation behind the move
+rel_volume_20,volume,Volume / SMA_20(Volume),Relative volume: participation behind the move
+volume_z_20,volume,20-day z-score of log(1+Volume),Abnormal trading activity
+vol_regime,regime,Percentile of vol_20 within the trailing 252 days,Low/high volatility regime
+trend_regime,regime,Close / SMA_200 - 1,Long-term trend regime (bull vs bear)
+trend_up,regime,1 if SMA_50 > SMA_200 else 0,Binary 'golden cross' trend state
+drawdown_252,regime,Close / trailing 252-day max - 1,Depth of the current drawdown (stress regime)

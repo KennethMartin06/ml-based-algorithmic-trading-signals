@@ -1,0 +1,20 @@
+{
+  "SPY": {
+    "logistic_regression": 1.560338700000102,
+    "random_forest": 41.56358899999941,
+    "xgboost": 72.12584799999968,
+    "lstm": 42.60084509999979
+  },
+  "AAPL": {
+    "logistic_regression": 0.8950181000000157,
+    "random_forest": 44.34666540000035,
+    "xgboost": 85.68866009999965,
+    "lstm": 38.671651499999825
+  },
+  "MSFT": {
+    "logistic_regression": 0.8683289999999033,
+    "random_forest": 32.38543269999991,
+    "xgboost": 66.9018632999996,
+    "lstm": 19.909748100000797
+  }
+}

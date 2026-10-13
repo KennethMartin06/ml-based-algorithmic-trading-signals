@@ -1,0 +1,5 @@
+# Optional: only needed to open/re-execute the notebooks in notebooks/
+-r requirements.txt
+jupyter>=1.0
+nbconvert>=7.0
+ipykernel>=6.0

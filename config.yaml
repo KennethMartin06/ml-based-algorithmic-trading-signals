@@ -1,0 +1,138 @@
+# =====================================================================
+# ML-Based Algorithmic Trading Signals - experiment configuration
+# All paths are relative to the project root.
+# =====================================================================
+
+experiment:
+  name: main
+  seed: 42
+  results_dir: results            # metrics/, figures/, predictions/, reports/ are created inside
+
+data:
+  tickers: [SPY, AAPL, MSFT]      # fixed before model evaluation (synopsis section 6)
+  start: "2010-01-01"
+  end: "2025-12-31"               # inclusive; the loader adds one day for yfinance's exclusive end
+  raw_dir: data/raw
+  use_cache: true                 # reuse data/raw/<ticker>_<start>_<end>.csv if present
+  max_retries: 3
+  # Synthetic data is ONLY a development fallback. It is never used unless this flag is true
+  # (or --synthetic is passed), and every output is then labelled SYNTHETIC.
+  allow_synthetic_fallback: false
+
+target:
+  scheme: three_class             # three_class (Down/Neutral/Up) or binary (Down/Up)
+  horizon: 1                      # trading days ahead
+  neutral_threshold: 0.001        # |forward return| <= 0.1% -> Neutral (modelling assumption)
+
+execution:
+  # next_open: signal computed after the close of day t, order filled at the OPEN of t+1, position
+  #            held until the open of t+2. The target return is defined on the same window, so the
+  #            model is trained on exactly the return it can trade.  (default, realistic)
+  # close:     market-on-close approximation: signal at close t, return Close[t+1]/Close[t]-1.
+  #            Optimistic - only used as a sensitivity analysis.
+  convention: next_open
+
+split:
+  train_end: "2019-12-31"         # train: first valid feature date .. train_end
+  val_end: "2021-12-31"           # validation: train_end .. val_end
+                                  # test: val_end .. data end (2022-2025, untouched until the end)
+  purge: true                     # drop rows whose label window crosses a split boundary
+
+features:
+  return_lags: [1, 2, 3, 5]
+  cumulative_windows: [5, 10, 20, 60]
+  sma_windows: [5, 10, 20, 50]
+  ema_windows: [5, 10, 20, 50]
+  rsi_window: 14
+  macd: {fast: 12, slow: 26, signal: 9}
+  bollinger: {window: 20, num_std: 2.0}
+  atr_window: 14
+  volatility_windows: [5, 20, 60]
+  volume_windows: [5, 20]
+  trend_window: 200
+  regime_window: 252
+
+models:
+  class_names: null               # derived from target.scheme
+  tuning:
+    cv_splits: 4                  # purged TimeSeriesSplit inside the training period
+    scoring: log_loss             # proper scoring rule; probabilities drive the signals
+  logistic_regression:
+    enabled: true
+    grid:
+      C: [0.001, 0.01, 0.1, 1.0]
+      class_weight: [null, balanced]
+  random_forest:
+    enabled: true
+    fixed: {n_estimators: 300, max_features: sqrt}
+    grid:
+      max_depth: [3, 6, 10]
+      min_samples_leaf: [20, 80]
+      class_weight: [null, balanced]
+  xgboost:
+    enabled: true
+    fixed: {subsample: 0.8, colsample_bytree: 0.8, min_child_weight: 5, reg_lambda: 1.0}
+    grid:
+      max_depth: [2, 3, 5]
+      learning_rate: [0.03, 0.1]
+      n_estimators: [100, 300]
+      class_weight: [null, balanced]
+  lstm:
+    enabled: true
+    seq_len: 20
+    hidden_size: 32
+    num_layers: 1
+    dropout: 0.2
+    learning_rate: 0.001
+    weight_decay: 0.0001
+    batch_size: 64
+    max_epochs: 60
+    patience: 8
+    class_weight: null            # default when not tuned; the grid below also tries 'balanced'
+    early_stopping_fraction: 0.2  # last 20% of the TRAINING period (purged) = early-stopping / selection slice
+    shuffle_train_batches: true   # shuffles mini-batch ORDER of training windows only (see docs)
+    tune: true                    # grid selected on log loss of the early-stopping slice (inside train)
+    grid:                         # class_weight is tuned as for the tabular models; walk-forward
+      hidden_size: [16, 32]       # folds tune class_weight only and keep hidden_size / seq_len above
+      seq_len: [10, 20]
+      class_weight: [null, balanced]
+  ensemble:
+    enabled: true                 # equal-weight soft voting; members chosen on validation log loss
+
+signals:
+  mode: long_only                 # long_only or long_short
+  threshold_grid: [0.30, 0.325, 0.35, 0.375, 0.40, 0.425, 0.45, 0.475, 0.50, 0.525, 0.55, 0.575, 0.60, 0.65]
+  selection_metric: sharpe        # chosen on the VALIDATION period only
+  min_exposure: 0.05              # a threshold must keep >= 5% of validation days invested
+
+backtest:
+  initial_capital: 100000
+  fee_bps: 10                     # per unit of turnover (illustrative, not a universal cost)
+  slippage_bps: 5                 # per unit of turnover
+  annualization: 252
+  risk_free_rate: 0.0             # annual; Sharpe/Sortino are excess of this
+  missing_position: flat          # NaN prediction -> no exposure (never an accidental long)
+
+baselines:
+  ma_short: 10
+  ma_long: 50
+
+walk_forward:
+  enabled: true
+  first_test_year: 2016
+  last_test_year: 2025
+  val_years: 1                    # year before each test year selects thresholds / early stopping
+  cv_splits: 3
+  models: [logistic_regression, random_forest, xgboost, lstm]
+  reduced_grids:
+    logistic_regression: {C: [0.01, 0.1], class_weight: [null, balanced]}
+    random_forest: {max_depth: [3, 6], min_samples_leaf: [40], class_weight: [null, balanced]}
+    xgboost: {max_depth: [2, 3], learning_rate: [0.05], n_estimators: [200], class_weight: [null, balanced]}
+
+robustness:
+  cost_bps_grid: [0, 5, 10, 20, 40]          # total (fee + slippage) bps per unit turnover
+  bootstrap: {n_boot: 2000, block_len: 20, ci: 0.95}
+  permutation_repeats: 10
+  vol_target: {enabled: true, annual_target: 0.15, window: 20, max_leverage: 1.0}
+  sensitivity_variants: true                 # holdout re-run: market-on-close execution, binary target (no LSTM)
+  feature_ablation: true

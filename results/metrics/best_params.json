@@ -1,0 +1,131 @@
+{
+  "SPY": {
+    "logistic_regression": {
+      "C": 0.001,
+      "class_weight": null
+    },
+    "random_forest": {
+      "n_estimators": 300,
+      "max_features": "sqrt",
+      "max_depth": 3,
+      "min_samples_leaf": 80,
+      "class_weight": null
+    },
+    "xgboost": {
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 5,
+      "reg_lambda": 1.0,
+      "max_depth": 2,
+      "learning_rate": 0.03,
+      "n_estimators": 100,
+      "class_weight": null
+    },
+    "lstm": {
+      "seq_len": 10,
+      "hidden_size": 32,
+      "num_layers": 1,
+      "dropout": 0.2,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 64,
+      "max_epochs": 60,
+      "patience": 8,
+      "class_weight": null,
+      "shuffle_train_batches": true,
+      "seed": 42
+    },
+    "ensemble": {
+      "members": [
+        "logistic_regression",
+        "lstm"
+      ]
+    }
+  },
+  "AAPL": {
+    "logistic_regression": {
+      "C": 0.001,
+      "class_weight": null
+    },
+    "random_forest": {
+      "n_estimators": 300,
+      "max_features": "sqrt",
+      "max_depth": 3,
+      "min_samples_leaf": 20,
+      "class_weight": null
+    },
+    "xgboost": {
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 5,
+      "reg_lambda": 1.0,
+      "max_depth": 2,
+      "learning_rate": 0.03,
+      "n_estimators": 100,
+      "class_weight": null
+    },
+    "lstm": {
+      "seq_len": 10,
+      "hidden_size": 16,
+      "num_layers": 1,
+      "dropout": 0.2,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 64,
+      "max_epochs": 60,
+      "patience": 8,
+      "class_weight": null,
+      "shuffle_train_batches": true,
+      "seed": 42
+    },
+    "ensemble": {
+      "members": [
+        "random_forest",
+        "xgboost"
+      ]
+    }
+  },
+  "MSFT": {
+    "logistic_regression": {
+      "C": 0.001,
+      "class_weight": null
+    },
+    "random_forest": {
+      "n_estimators": 300,
+      "max_features": "sqrt",
+      "max_depth": 3,
+      "min_samples_leaf": 80,
+      "class_weight": null
+    },
+    "xgboost": {
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 5,
+      "reg_lambda": 1.0,
+      "max_depth": 2,
+      "learning_rate": 0.03,
+      "n_estimators": 100,
+      "class_weight": null
+    },
+    "lstm": {
+      "seq_len": 10,
+      "hidden_size": 16,
+      "num_layers": 1,
+      "dropout": 0.2,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 64,
+      "max_epochs": 60,
+      "patience": 8,
+      "class_weight": null,
+      "shuffle_train_batches": true,
+      "seed": 42
+    },
+    "ensemble": {
+      "members": [
+        "logistic_regression",
+        "random_forest"
+      ]
+    }
+  }
+}

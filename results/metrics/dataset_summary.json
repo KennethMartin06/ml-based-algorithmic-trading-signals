@@ -1,0 +1,86 @@
+{
+  "SPY": {
+    "dataset": {
+      "rows_before_warmup_drop": 4024,
+      "first_complete_feature_date": "2011-01-31",
+      "incomplete_rows_after_warmup_dropped": 0,
+      "rows": 3753,
+      "labelled_rows": 3751
+    },
+    "split": {
+      "train": {
+        "rows": 2243,
+        "start": "2011-01-31",
+        "end": "2019-12-27"
+      },
+      "val": {
+        "rows": 503,
+        "start": "2020-01-02",
+        "end": "2021-12-29"
+      },
+      "test": {
+        "rows": 1001,
+        "start": "2022-01-03",
+        "end": "2025-12-29"
+      }
+    },
+    "n_features": 42,
+    "train_vol_median": 0.00685296246330621
+  },
+  "AAPL": {
+    "dataset": {
+      "rows_before_warmup_drop": 4024,
+      "first_complete_feature_date": "2011-01-31",
+      "incomplete_rows_after_warmup_dropped": 0,
+      "rows": 3753,
+      "labelled_rows": 3751
+    },
+    "split": {
+      "train": {
+        "rows": 2243,
+        "start": "2011-01-31",
+        "end": "2019-12-27"
+      },
+      "val": {
+        "rows": 503,
+        "start": "2020-01-02",
+        "end": "2021-12-29"
+      },
+      "test": {
+        "rows": 1001,
+        "start": "2022-01-03",
+        "end": "2025-12-29"
+      }
+    },
+    "n_features": 42,
+    "train_vol_median": 0.014168009422144074
+  },
+  "MSFT": {
+    "dataset": {
+      "rows_before_warmup_drop": 4024,
+      "first_complete_feature_date": "2011-01-31",
+      "incomplete_rows_after_warmup_dropped": 0,
+      "rows": 3753,
+      "labelled_rows": 3751
+    },
+    "split": {
+      "train": {
+        "rows": 2243,
+        "start": "2011-01-31",
+        "end": "2019-12-27"
+      },
+      "val": {
+        "rows": 503,
+        "start": "2020-01-02",
+        "end": "2021-12-29"
+      },
+      "test": {
+        "rows": 1001,
+        "start": "2022-01-03",
+        "end": "2025-12-29"
+      }
+    },
+    "n_features": 42,
+    "train_vol_median": 0.01239650239488843
+  }
+}

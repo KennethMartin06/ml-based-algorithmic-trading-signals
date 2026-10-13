@@ -1,0 +1,323 @@
+{
+  "experiment": "main",
+  "synthetic_data": false,
+  "is_default_full_run": true,
+  "tickers": [
+    "SPY",
+    "AAPL",
+    "MSFT"
+  ],
+  "environment": {
+    "project_version": "1.0.0",
+    "python": "3.14.3",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.8.0",
+    "xgboost": "3.2.0",
+    "torch": "2.11.0+cpu"
+  },
+  "stage_seconds": {
+    "train": 580.1,
+    "evaluate": 64.6,
+    "walk_forward": 619.2,
+    "sensitivity_variants": 170.2
+  },
+  "total_seconds": 1434.3,
+  "config": {
+    "experiment": {
+      "name": "main",
+      "seed": 42,
+      "results_dir": "results"
+    },
+    "data": {
+      "tickers": [
+        "SPY",
+        "AAPL",
+        "MSFT"
+      ],
+      "start": "2010-01-01",
+      "end": "2025-12-31",
+      "raw_dir": "data/raw",
+      "use_cache": true,
+      "max_retries": 3,
+      "allow_synthetic_fallback": false
+    },
+    "target": {
+      "scheme": "three_class",
+      "horizon": 1,
+      "neutral_threshold": 0.001
+    },
+    "execution": {
+      "convention": "next_open"
+    },
+    "split": {
+      "train_end": "2019-12-31",
+      "val_end": "2021-12-31",
+      "purge": true
+    },
+    "features": {
+      "return_lags": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "cumulative_windows": [
+        5,
+        10,
+        20,
+        60
+      ],
+      "sma_windows": [
+        5,
+        10,
+        20,
+        50
+      ],
+      "ema_windows": [
+        5,
+        10,
+        20,
+        50
+      ],
+      "rsi_window": 14,
+      "macd": {
+        "fast": 12,
+        "slow": 26,
+        "signal": 9
+      },
+      "bollinger": {
+        "window": 20,
+        "num_std": 2.0
+      },
+      "atr_window": 14,
+      "volatility_windows": [
+        5,
+        20,
+        60
+      ],
+      "volume_windows": [
+        5,
+        20
+      ],
+      "trend_window": 200,
+      "regime_window": 252
+    },
+    "models": {
+      "class_names": null,
+      "tuning": {
+        "cv_splits": 4,
+        "scoring": "log_loss"
+      },
+      "logistic_regression": {
+        "enabled": true,
+        "grid": {
+          "C": [
+            0.001,
+            0.01,
+            0.1,
+            1.0
+          ],
+          "class_weight": [
+            null,
+            "balanced"
+          ]
+        }
+      },
+      "random_forest": {
+        "enabled": true,
+        "fixed": {
+          "n_estimators": 300,
+          "max_features": "sqrt"
+        },
+        "grid": {
+          "max_depth": [
+            3,
+            6,
+            10
+          ],
+          "min_samples_leaf": [
+            20,
+            80
+          ],
+          "class_weight": [
+            null,
+            "balanced"
+          ]
+        }
+      },
+      "xgboost": {
+        "enabled": true,
+        "fixed": {
+          "subsample": 0.8,
+          "colsample_bytree": 0.8,
+          "min_child_weight": 5,
+          "reg_lambda": 1.0
+        },
+        "grid": {
+          "max_depth": [
+            2,
+            3,
+            5
+          ],
+          "learning_rate": [
+            0.03,
+            0.1
+          ],
+          "n_estimators": [
+            100,
+            300
+          ],
+          "class_weight": [
+            null,
+            "balanced"
+          ]
+        }
+      },
+      "lstm": {
+        "enabled": true,
+        "seq_len": 20,
+        "hidden_size": 32,
+        "num_layers": 1,
+        "dropout": 0.2,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "batch_size": 64,
+        "max_epochs": 60,
+        "patience": 8,
+        "class_weight": null,
+        "early_stopping_fraction": 0.2,
+        "shuffle_train_batches": true,
+        "tune": true,
+        "grid": {
+          "hidden_size": [
+            16,
+            32
+          ],
+          "seq_len": [
+            10,
+            20
+          ],
+          "class_weight": [
+            null,
+            "balanced"
+          ]
+        }
+      },
+      "ensemble": {
+        "enabled": true
+      }
+    },
+    "signals": {
+      "mode": "long_only",
+      "threshold_grid": [
+        0.3,
+        0.325,
+        0.35,
+        0.375,
+        0.4,
+        0.425,
+        0.45,
+        0.475,
+        0.5,
+        0.525,
+        0.55,
+        0.575,
+        0.6,
+        0.65
+      ],
+      "selection_metric": "sharpe",
+      "min_exposure": 0.05
+    },
+    "backtest": {
+      "initial_capital": 100000,
+      "fee_bps": 10,
+      "slippage_bps": 5,
+      "annualization": 252,
+      "risk_free_rate": 0.0,
+      "missing_position": "flat"
+    },
+    "baselines": {
+      "ma_short": 10,
+      "ma_long": 50
+    },
+    "walk_forward": {
+      "enabled": true,
+      "first_test_year": 2016,
+      "last_test_year": 2025,
+      "val_years": 1,
+      "cv_splits": 3,
+      "models": [
+        "logistic_regression",
+        "random_forest",
+        "xgboost",
+        "lstm"
+      ],
+      "reduced_grids": {
+        "logistic_regression": {
+          "C": [
+            0.01,
+            0.1
+          ],
+          "class_weight": [
+            null,
+            "balanced"
+          ]
+        },
+        "random_forest": {
+          "max_depth": [
+            3,
+            6
+          ],
+          "min_samples_leaf": [
+            40
+          ],
+          "class_weight": [
+            null,
+            "balanced"
+          ]
+        },
+        "xgboost": {
+          "max_depth": [
+            2,
+            3
+          ],
+          "learning_rate": [
+            0.05
+          ],
+          "n_estimators": [
+            200
+          ],
+          "class_weight": [
+            null,
+            "balanced"
+          ]
+        }
+      }
+    },
+    "robustness": {
+      "cost_bps_grid": [
+        0,
+        5,
+        10,
+        20,
+        40
+      ],
+      "bootstrap": {
+        "n_boot": 2000,
+        "block_len": 20,
+        "ci": 0.95
+      },
+      "permutation_repeats": 10,
+      "vol_target": {
+        "enabled": true,
+        "annual_target": 0.15,
+        "window": 20,
+        "max_leverage": 1.0
+      },
+      "sensitivity_variants": true,
+      "feature_ablation": true
+    }
+  }
+}

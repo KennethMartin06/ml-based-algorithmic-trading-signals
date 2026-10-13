@@ -1,0 +1,11 @@
+[project]
+name = "ml-based-algorithmic-trading-signals"
+version = "1.0.0"
+description = "ML-based algorithmic trading signals (LogReg, Random Forest, XGBoost, LSTM) vs technical baselines with chronological validation and cost-aware backtesting."
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = ["ignore::DeprecationWarning", "ignore::FutureWarning"]
