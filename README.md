@@ -324,6 +324,23 @@ which omits PyTorch (the dashboard reads the saved LSTM predictions). The app re
 An app from a private repository is private by default. Invite viewers by email with **Share**, or switch the app (not
 the code) to public in its sharing settings.
 
+### Mini-project report (IEEE conference format)
+
+The report is generated from the official IEEE conference template (A4) and the saved results. Every number in
+its text and tables is read from `results/metrics`, references are numbered in order of first citation, and the
+build fails if a listed reference is never cited.
+
+```bash
+python report/report_figures.py
+```
+
+```bash
+python report/build_report.py --pdf
+```
+
+The output goes to `report/output/` (`.docx`, plus a `.pdf` rendered by Microsoft Word on Windows). The generated
+report is git-ignored because it contains the authors' registration numbers.
+
 Notebooks (optional, `pip install -r requirements-notebooks.txt`): `notebooks/01_exploratory_data_analysis.ipynb`,
 `02_feature_engineering.ipynb` and `03_model_evaluation.ipynb` read the saved results. No training happens in the notebooks.
 

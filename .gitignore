@@ -41,3 +41,6 @@ results_synthetic_quick/
 
 # local tool configuration
 .claude/
+
+# generated mini-project report (contains registration numbers; rebuild with report/build_report.py)
+report/output/
