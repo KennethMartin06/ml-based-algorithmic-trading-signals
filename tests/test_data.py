@@ -551,3 +551,39 @@ def test_load_universe_passes_config_through(cfg, tmp_path, monkeypatch):
     assert all(Path(m["file"]).resolve().is_relative_to(tmp_path.resolve()) for m in manifest)
     seed = cfg["experiment"]["seed"]
     _assert_adjusted_equals(frames["AAA"], generate_synthetic_ohlcv("AAA", START, END, seed=seed))
+
+
+# ---------------------------------------------------------------------------------------------
+# live data: unfinished trading session
+# ---------------------------------------------------------------------------------------------
+
+
+def _bars(last_day: str) -> pd.DataFrame:
+    idx = pd.bdate_range(end=last_day, periods=3)
+    return pd.DataFrame({"close": [1.0, 2.0, 3.0]}, index=idx)
+
+
+@pytest.mark.parametrize(
+    "now_utc, expect_drop",
+    [
+        ("2026-10-23 15:35", True),   # 11:35 New York: session open -> today's bar is incomplete
+        ("2026-10-23 20:14", True),   # 16:14 New York: closing auction prints may not be in yet
+        ("2026-10-23 20:15", False),  # 16:15 New York: session finished
+        ("2026-10-24 03:00", False),  # 23:00 New York on the same day: after the close
+    ],
+)
+def test_drop_unfinished_session(now_utc, expect_drop):
+    """Today's bar is removed only while the New York session is still open."""
+    from src.data_loader import drop_unfinished_session
+
+    bars = _bars("2026-10-23")
+    out, dropped = drop_unfinished_session(bars, pd.Timestamp(now_utc, tz="UTC"))
+    assert dropped is expect_drop
+    assert len(out) == (2 if expect_drop else 3)
+
+
+def test_drop_unfinished_session_keeps_history_ending_before_today():
+    from src.data_loader import drop_unfinished_session
+
+    out, dropped = drop_unfinished_session(_bars("2026-10-22"), pd.Timestamp("2026-10-23 15:35", tz="UTC"))
+    assert not dropped and len(out) == 3

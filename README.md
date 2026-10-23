@@ -110,6 +110,7 @@ ML_Based_Algorithmic_Trading/
 │   ├── reporting.py             # Markdown report + README results block from saved metrics
 │   ├── visualization.py         # figures
 │   └── utils.py
+├── app/                         # Streamlit dashboard (live demo) + its lightweight requirements.txt
 ├── scripts/                     # CLI entry points (download_data, train, evaluate, run_experiment, generate_report)
 ├── tests/                       # pytest suite (leakage, features, targets, backtester, models, pipeline)
 ├── notebooks/                   # 01 EDA, 02 features, 03 model evaluation (read saved results)
@@ -292,6 +293,36 @@ Other entry points:
 | `python -m scripts.run_experiment --tickers AAPL` | single-asset run with the full settings |
 | `python -m scripts.run_experiment --skip-walk-forward --skip-lstm` | faster run without the slow stages |
 | `python -m scripts.run_experiment --synthetic --quick` | offline development run on **synthetic** data (labelled as such) |
+
+### Interactive dashboard (live demo)
+
+`app/streamlit_app.py` is a Streamlit dashboard over the project. Every number in it is computed by the code in `src/`:
+
+| Tab | What it shows |
+|---|---|
+| Overview | headline test results, rule-based key findings, model comparison table |
+| Interactive backtest | re-runs `src/backtester.py` live on the saved out-of-sample probabilities; change model, threshold τ, costs, long/short and volatility sizing |
+| Predictions | classification metrics, confusion matrix, calibration curve and the latest predictions, computed from the saved predictions |
+| Walk-forward & robustness | 2016–2025 walk-forward equity recomputed live, yearly Sharpe, bootstrap intervals, cost sensitivity |
+| Train a model live | downloads fresh Yahoo Finance data and runs the full pipeline (features → purged split → train → τ on validation → backtest) in seconds |
+| Figures & docs | all generated figures and the methodology / comparison / limitations documents |
+
+Run it locally:
+
+```bash
+pip install -r app/requirements.txt
+```
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+**Hosting on Streamlit Community Cloud (free).** At [share.streamlit.io](https://share.streamlit.io), sign in with GitHub
+and choose **Create app → Yup, I have an app**. Enter repository `KennethMartin06/ml-based-algorithmic-trading-signals`,
+branch `main` and main file path `app/streamlit_app.py`, then deploy. Community Cloud installs `app/requirements.txt`,
+which omits PyTorch (the dashboard reads the saved LSTM predictions). The app redeploys automatically on every push.
+An app from a private repository is private by default. Invite viewers by email with **Share**, or switch the app (not
+the code) to public in its sharing settings.
 
 Notebooks (optional, `pip install -r requirements-notebooks.txt`): `notebooks/01_exploratory_data_analysis.ipynb`,
 `02_feature_engineering.ipynb` and `03_model_evaluation.ipynb` read the saved results. No training happens in the notebooks.

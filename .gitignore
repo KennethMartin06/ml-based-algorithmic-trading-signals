@@ -38,3 +38,6 @@ results_synthetic/
 results_synthetic_quick/
 *.log
 *.tmp
+
+# local tool configuration
+.claude/

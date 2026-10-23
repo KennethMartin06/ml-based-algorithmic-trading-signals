@@ -8,6 +8,7 @@ import pytest
 
 from src import experiment as ex
 from src.models import XGBOOST_AVAILABLE, applicable_params, fit_estimator, predict_proba_full, time_series_grid_search
+from src.lstm_model import TORCH_AVAILABLE
 from src.reporting import key_findings
 from src.utils import deep_update
 
@@ -67,6 +68,7 @@ def test_lstm_internal_split_is_purged_and_inside_train(n, frac, gap):
     assert len(fit) + gap + len(es) == n
 
 
+@pytest.mark.skipif(not TORCH_AVAILABLE, reason="PyTorch not installed")
 def test_holdout_lstm_never_uses_validation_rows(small_cfg, prices, monkeypatch):
     """The LSTM's fit/early-stopping positions all lie inside the training period."""
     from src import lstm_model

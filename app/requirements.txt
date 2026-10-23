@@ -1,0 +1,14 @@
+# Dependencies for the hosted dashboard (Streamlit Community Cloud reads this file because it sits
+# next to the entry point app/streamlit_app.py). PyTorch is deliberately omitted: the dashboard reads
+# the saved LSTM predictions and trains only the tabular models live.
+streamlit>=1.40
+plotly>=5.20
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+scipy>=1.11
+joblib>=1.3
+pyyaml>=6.0
+yfinance>=0.2.54
+xgboost-cpu>=2.1
+matplotlib>=3.8

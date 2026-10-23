@@ -304,6 +304,20 @@ def load_ticker(
     return adjusted, meta
 
 
+def drop_unfinished_session(prices: pd.DataFrame, now_utc: pd.Timestamp | None = None) -> tuple[pd.DataFrame, bool]:
+    """Drop today's bar while the US session is still open (before 16:15 New York time).
+
+    During trading hours Yahoo's daily bar is incomplete - its "close" is only the latest price - so
+    it must not be used as a completed day when computing features or labels. Returns the frame and
+    whether a bar was removed.
+    """
+    now_ny = (now_utc if now_utc is not None else pd.Timestamp.now(tz="UTC")).tz_convert("America/New_York")
+    session_closed = now_ny.hour > 16 or (now_ny.hour == 16 and now_ny.minute >= 15)
+    if len(prices) and prices.index[-1].date() >= now_ny.date() and not session_closed:
+        return prices.iloc[:-1], True
+    return prices, False
+
+
 def load_universe(cfg: dict, tickers: list[str] | None = None, force_synthetic: bool = False):
     """Load every configured ticker. Returns ``({ticker: frame}, [DataMeta dicts])``."""
     dcfg = cfg["data"]
