@@ -115,6 +115,8 @@ ML_Based_Algorithmic_Trading/
 ├── tests/                       # pytest suite (leakage, features, targets, backtester, models, pipeline)
 ├── notebooks/                   # 01 EDA, 02 features, 03 model evaluation (read saved results)
 ├── docs/                        # methodology, model comparison, limitations, submission checklist
+├── report/                      # IEEE-format report builder (output git-ignored)
+├── presentation/                # viva deck (final_presentation.pptx), its generator scripts and previews
 ├── data/README.md               # data provenance (raw CSVs are downloaded, not committed)
 └── results/
     ├── metrics/                 # CSV/JSON: metrics, tuning tables, thresholds, bootstrap, walk-forward
@@ -340,6 +342,13 @@ python report/build_report.py --pdf
 
 The output goes to `report/output/` (`.docx`, plus a `.pdf` rendered by Microsoft Word on Windows). The generated
 report is git-ignored because it contains the authors' registration numbers.
+
+### Presentation (PowerPoint)
+
+`presentation/final_presentation.pptx` is the 23-slide viva deck. It has native charts and speaker notes,
+Morph transitions verified in PowerPoint, and real dashboard screenshots. A PDF copy is in `presentation/preview/`.
+Like the report, it is generated from `results/metrics`. See [`presentation/README.md`](presentation/README.md)
+for the slide list, design notes, how the motion was verified, and the rebuild commands (Windows + PowerPoint).
 
 Notebooks (optional, `pip install -r requirements-notebooks.txt`): `notebooks/01_exploratory_data_analysis.ipynb`,
 `02_feature_engineering.ipynb` and `03_model_evaluation.ipynb` read the saved results. No training happens in the notebooks.
