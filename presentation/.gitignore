@@ -5,3 +5,5 @@ build/
 preview/slide-*.png
 preview/contact_sheet.png
 preview/motion/deck_preview.mp4
+# PowerPoint / Word lock files while a document is open
+~$*
