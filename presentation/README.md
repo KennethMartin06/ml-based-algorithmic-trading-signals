@@ -16,6 +16,7 @@ speaker notes. A static PDF copy is in `preview/final_presentation.pdf`.
 ```
 presentation/
 ├── final_presentation.pptx        the deck (open this)
+├── speaker_notes.pdf / .docx      handbook: per-slide explanation, script, numbers, likely Q&A, demo script
 ├── README.md                      this file
 ├── assets/
 │   ├── screenshots/               REAL screenshots of the running Streamlit dashboard + CAPTURE_NOTES.md
@@ -25,6 +26,7 @@ presentation/
 │   ├── make_assets.py             backgrounds + price-trace data
 │   ├── build_deck.py              slides, layouts, theme, native charts, notes, motion plan (python-pptx)
 │   ├── apply_motion.py            transitions, animations, sections, font embedding (PowerPoint via COM)
+│   ├── build_speaker_notes.py     the speaker-notes handbook (python-docx; PDF via Word)
 │   ├── render_preview.py          PNG/PDF export + text-overflow check (PowerPoint via COM)
 │   └── verify_motion.py           read-back, XML and video checks of the motion (PowerPoint via COM + ffmpeg)
 ├── source/slide_outline.md        slide titles, transitions, click counts and full speaker notes for rehearsal
@@ -144,6 +146,7 @@ python presentation/scripts/build_deck.py
 python presentation/scripts/apply_motion.py
 python presentation/scripts/render_preview.py presentation/final_presentation.pptx --pdf
 python presentation/scripts/verify_motion.py
+python presentation/scripts/build_speaker_notes.py --pdf
 ```
 
 Dependencies: `python-pptx`, `pywin32`, `pandas`, `numpy`, `Pillow`, `lxml`, and ffmpeg for the video check.
